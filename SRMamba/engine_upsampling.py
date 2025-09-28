@@ -566,10 +566,10 @@ def Upsamping_only(data_loader, model, device, log_writer, args=None):
         only upsampling
     '''
 
-    iteration = 1
-    iteration_batch =1
-    # iteration = args.num_mcdropout_iterations
-    # iteration_batch = 8
+    # iteration = 1
+    # iteration_batch =1
+    iteration = args.num_mcdropout_iterations
+    iteration_batch = 8
     noise_threshold = args.noise_threshold
 
     assert iteration >= iteration_batch
