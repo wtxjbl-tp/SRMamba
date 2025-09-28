@@ -78,6 +78,27 @@ def readlines(filename):
         lines = f.read().splitlines()
     return lines
 
+def fill_holes_with_nearby_values(img,empty_value=0):
+    h, w = img.shape
+    out = img.copy()
+
+    mask = (out != empty_value)
+
+    nearest_up = np.zeros_like(out)
+    nearest_up[0] = out[0]
+    for y in range(1, h):
+        nearest_up[y] = np.where(mask[y], out[y], nearest_up[y-1])
+
+    nearest_down = np.zeros_like(out)
+    nearest_down[-1] = out[-1]
+    for y in range(h-2, -1, -1):
+        nearest_down[y] = np.where(mask[y], out[y], nearest_down[y+1])
+
+    filled = np.where(out != empty_value, out,
+                      np.where(nearest_up != empty_value, nearest_up, nearest_down))
+    return filled
+
+
 def main(args):
     num_data_train = args.num_data_train
     num_data_val = args.num_data_val
@@ -157,6 +178,7 @@ def main(args):
         lidar_data = load_from_bin(train_data_path)
         # range_intensity_map = create_range_map(lidar_data, image_rows_full = image_rows, image_cols = image_cols, ang_start_y = ang_start_y, ang_res_y = ang_res_y, ang_res_x = ang_res_x, max_range = max_range, min_range = min_range)
         range_intensity_map = RV.__call__(lidar_data)
+        range_intensity_map = fill_holes_with_nearby_values(range_intensity_map)
 
         np.save(os.path.join(output_dir_name_train,'{:08d}.npy'.format(i)), range_intensity_map.astype(np.float32))
 
@@ -164,6 +186,7 @@ def main(args):
         for j, val_data_path in enumerate(val_data):
             lidar_data = load_from_bin(val_data_path)
             range_intensity_map = RV.__call__(lidar_data)
+            range_intensity_map = fill_holes_with_nearby_values(range_intensity_map)
             # range_intensity_map = create_range_map(lidar_data, image_rows_full = image_rows, image_cols = image_cols, ang_start_y = ang_start_y, ang_res_y = ang_res_y, ang_res_x = ang_res_x, max_range = max_range, min_range = min_range)
             np.save(os.path.join(output_dir_name_val,'{:08d}.npy'.format(j)), range_intensity_map.astype(np.float32))
 
