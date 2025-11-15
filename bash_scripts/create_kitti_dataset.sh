@@ -9,4 +9,4 @@ args=(
     --create_val
     )
 
-python /DATA/TULIP/kitti_utils/sample_kitti_dataset.py "${args[@]}"
+python kitti_utils/sample_kitti_dataset.py "${args[@]}"
