@@ -15,7 +15,7 @@ args=(
     --log_transform # improve
     --patch_unmerging # improve
     # Dataset
-    --dataset_select nuScenes
+    --dataset_select kitti
     --data_path_low_res /path_to_kitti/
     --data_path_high_res /path_to_kitti/
     # WandB Parameters
