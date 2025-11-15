@@ -15,7 +15,6 @@ from util.filter import *
 import trimesh
 import tqdm
 import json
-from thop import profile
 
 cNorm = colors.Normalize(vmin=0, vmax=1)
 jet = plt.get_cmap('viridis_r')
@@ -377,7 +376,6 @@ def MCdrop(data_loader, model, device, log_writer, args=None):
         images_low_res = images_low_res.to(device, non_blocking=True)
         images_high_res = images_high_res.to(device, non_blocking=True)
         global_step += 1
-        # compute output
 
         with torch.cuda.amp.autocast():
 
@@ -728,5 +726,3 @@ def get_latest_checkpoint(args):
     if latest_ckpt >= 0:
         args.resume = os.path.join(output_dir, 'checkpoint-%d.pth' % latest_ckpt)
     print("Find checkpoint: %s" % args.resume)
-
-#
