@@ -24,8 +24,8 @@ args=(
      --wandb_disabled
     --project_name experiment_kitti
     --output_dir ./experiment/kitti/SRMamba_tiny
-    --img_size_low_res 8 1024
-    --img_size_high_res 32 1024
+    --img_size_low_res 16 1024
+    --img_size_high_res 64 1024
     --window_size 2 8
     --patch_size 1 4
     --in_chans 1
