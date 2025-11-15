@@ -122,7 +122,6 @@ def main(args):
     if num_data_train < len(train_split):
         train_split = np.random.choice(train_split, num_data_train, replace=False)
         for train_folder in train_split:
-            # 随机选择bin构建数据集
             sample_one_train_data = np.random.choice(np.array(glob(os.path.join(dir_name, train_folder, "velodyne_points/data/*.bin"))), 1, replace=False)
             train_data.append(sample_one_train_data[0])
 
