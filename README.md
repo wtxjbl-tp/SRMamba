@@ -17,6 +17,7 @@ Projecting point clouds during training severely affects efficiency, so the poin
 ```
 bash bash_scripts/create_kitti_dataset.sh
 ```
+This step will generate the corresponding train and validation range image datasets in the specified directory, with the files saved in .npy format.
 ## Train
 ```
 bash bash_scripts/SRMamba_upsampling_kitti.sh
