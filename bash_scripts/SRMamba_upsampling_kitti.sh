@@ -20,7 +20,7 @@ args=(
     --data_path_high_res /path_to_kitti/
     # WandB Parameters
     --run_name SRMamba_tiny
-    --entity myentity
+    --entity entity_name
      --wandb_disabled
     --project_name experiment_kitti
     --output_dir ./experiment/kitti/SRMamba_tiny
