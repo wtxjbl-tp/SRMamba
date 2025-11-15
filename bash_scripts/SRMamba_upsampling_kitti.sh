@@ -32,4 +32,4 @@ args=(
     )
 
 # real batch size in training = batch_size * nproc_per_node
-torchrun --nproc_per_node=4 tulip/main_lidar_upsampling.py "${args[@]}"
+torchrun --nproc_per_node=4 SRMamba/main_lidar_upsampling.py "${args[@]}"
