@@ -19,7 +19,7 @@ args=(
     --data_path_low_res /path_to_kitti/
     --data_path_high_res /path_to_kitti/
     # WandB Parameters
-    --run_name tulip_base
+    --run_name SRMamba_tiny
     --entity myentity
      --wandb_disabled
     --project_name experiment_kitti
