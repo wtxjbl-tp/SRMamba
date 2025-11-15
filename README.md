@@ -19,9 +19,9 @@ python sample_kitti_dataset.py --num_data_train 20000 --num_data_val 2500 --outp
 ```
 ## Train
 ```
-bash bash_scrips/SRMamba_upsampling_kitti.sh
+bash bash_scripts/SRMamba_upsampling_kitti.sh
 ```
 ## Val
 ```
-bash bash_scrips/SRMamba_evaluation_kitti.sh
+bash bash_scripts/SRMamba_evaluation_kitti.sh
 ```
