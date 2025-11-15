@@ -15,7 +15,7 @@ We use [kitti-360](https://www.cvlibs.net/datasets/kitti/index.php) and [nuScene
 ### range image
 Projecting point clouds during training severely affects efficiency, so the point clouds can be pre-converted to range images using the following script:
 ```
-python sample_kitti_dataset.py --num_data_train 20000 --num_data_val 2500 --output_path_name_train "train_save_path" --output_path_name_val "val_save_path" --input_path "input_path" --create_val
+bash bash_scripts/create_kitti_dataset.sh
 ```
 ## Train
 ```
