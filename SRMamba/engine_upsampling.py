@@ -62,7 +62,6 @@ def train_one_epoch(model: torch.nn.Module,
 
 
         with torch.cuda.amp.autocast():
-            # 进行模型训练 计算损失值
             _, total_loss, pixel_loss = model(samples_low_res,
                             samples_high_res,
                             eval = False)
